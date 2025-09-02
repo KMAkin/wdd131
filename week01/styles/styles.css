@@ -7,9 +7,10 @@
 }
 
 /* this is for header section settings */
-header {
+header, footer {
     background-color: gray;
     color: white;
+    text-align: center;
     font-weight: bold;
     padding: 15px;
 }
@@ -32,13 +33,4 @@ div ul li {
     color: white;
     text-decoration: none;
     font-weight: bold;
-}
-
-/* this is for footer section settings */
-footer {
-    background-color: black;
-    color: white;
-    text-align: center;
-    font-weight: bold;
-    padding: 15px;
 }
