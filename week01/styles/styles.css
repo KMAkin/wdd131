@@ -15,48 +15,23 @@ header {
 }
 
 /* this is for navagation section settings */
-nav {
+div {
     background-color: black;
 }
 
 /* this is for navagation and unordered list section settings */
-nav ul {
-    display: flex;
+div ul {
     justify-content: space-around;
     list-style: none;
 }
 
 /* this is for navagation, unordered list and list section settings */
-nav ul li {
+div ul li {
     display: block;
     padding: 15px;
     color: white;
     text-decoration: none;
     font-weight: bold;
-}
-
-/* this is for class section for the main and aside settings */
-.content-wrapper {
-    display: flex;
-    min-height: 400px;
-}
-
-/* this is for main section settings */
-main {
-    flex: 3;
-    background-color: lightgrey;
-    padding: 15px;
-    font-weight: bold;
-    color: black;
-}
-
-/* this is for aside section settings */
-aside {
-    flex: 1;
-    background-color: white;
-    color: black;
-    font-weight: bold;
-    padding: 15px;
 }
 
 /* this is for footer section settings */
