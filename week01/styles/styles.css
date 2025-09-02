@@ -7,30 +7,63 @@
 }
 
 /* this is for header section settings */
-header, footer {
+header {
     background-color: gray;
     color: white;
-    text-align: center;
     font-weight: bold;
     padding: 15px;
 }
 
 /* this is for navagation section settings */
-div {
+nav {
     background-color: black;
 }
 
 /* this is for navagation and unordered list section settings */
-div ul {
+nav ul {
+    display: flex;
     justify-content: space-around;
     list-style: none;
 }
 
 /* this is for navagation, unordered list and list section settings */
-div ul li {
+nav ul li {
     display: block;
     padding: 15px;
     color: white;
     text-decoration: none;
     font-weight: bold;
+}
+
+/* this is for class section for the main and aside settings */
+.content-wrapper {
+    display: flex;
+    min-height: 400px;
+}
+
+/* this is for main section settings */
+main {
+    flex: 3;
+    background-color: lightgrey;
+    padding: 15px;
+    font-weight: bold;
+    color: black;
+}
+
+/* this is for aside section settings */
+aside {
+    flex: 1;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    padding: 15px;
+}
+
+/* this is for footer section settings */
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    padding: 15px;
 }
