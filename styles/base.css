@@ -35,7 +35,7 @@ nav .header-menu {
 
 /* setup of the nav fields */
 nav ul {
-    display: inline-flex;
+    display: flex;
     justify-content: center;
     list-style: none;
     gap: 240px;
