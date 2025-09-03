@@ -1,0 +1,176 @@
+/* Applies to globally */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* this applies to the body */
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.5;
+    background-color: white;
+    color: black;
+}
+
+/* this applies to header */
+header {
+    background-color: darkblue;
+    color: white;
+    padding: 15px 0 0 0;
+    text-align: center;
+}
+
+header h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 2.5rem;
+    display: block;
+}
+
+/* this applies to the navigation  */
+nav .header-menu {
+    background-color: black;
+}
+
+/* setup of the nav fields */
+nav ul {
+    display: inline-flex;
+    justify-content: center;
+    list-style: none;
+    gap: 240px;
+    padding: 10px 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* applies to my hyper links in both the nav and aside sections */
+ul a:link {
+    color: blue;
+}
+
+ul a:visited {
+    color: purple;
+}
+
+ul a:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+ul a:active {
+    color: orange;
+}
+
+/* applies to the main section */
+.content-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+}
+
+/* applied to main and card1 and card2 in main */
+main {
+    display: grid;
+    gap: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.card {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    }
+
+.card1 h2 {
+    background-color: darkblue;
+    color: white;
+    padding: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    border-radius: 6px 6px 0 0;
+    margin: -20px -20px 20px -20px;
+    text-align: center;
+}
+
+.card1 img {
+    float: right;
+    padding-bottom: 10px;
+    margin-left: 15px;
+    border-radius: 6px;
+    max-width: 150px;
+}
+
+.card2 h2 {
+    background-color: darkblue;
+    color: white;
+    padding: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    border-radius: 6px 6px 0 0;
+    margin: -20px -20px 20px -20px;
+    text-align: center;
+}
+
+.card2 img {
+    float: left;
+    margin-right: 15px;
+    border-radius: 6px;
+    max-width: 150px;
+}
+
+/* applies to the aside and card3 section */
+aside {
+
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.card3 h2 {
+    background-color: darkblue;
+    color: white;
+    padding: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.4rem;
+    border-radius: 6px 6px 0 0;
+    margin: -20px -20px 20px -20px;
+    text-align: center;
+}
+
+aside ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+aside li {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* applies to the footer section */
+footer {
+    background-color: darkblue;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 0.85rem;
+    margin-top: 30px;
+}
+
