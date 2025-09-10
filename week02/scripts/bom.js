@@ -1,7 +1,7 @@
-// Grab elements from the DOM
-const input = document.querySelector('#favchap');  // input field
-const button = document.querySelector('#button'); // Add Chapter button (change ID if different)
-const list = document.querySelector('#list');         // ul or ol element
+// These are the elements from the dom.html that is used for this js
+const input = document.querySelector('#favchap');  
+const button = document.querySelector('#addBtn'); 
+const list = document.querySelector('#list');     
 
 // Add click event listener to the button
 button.addEventListener('click', function () {
