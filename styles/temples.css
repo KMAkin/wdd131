@@ -11,14 +11,14 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.5;
-    background-color: #fdfdfd;
-    color: #222;
+    background-color: white;
+    color: navy;
 }
 
 /* this is for my header section*/
 header {
-    background-color: #4b007d;
-    color: #fff;
+    background-color: coral;
+    color: navy;
     padding: 1rem;
     display: flex;
     justify-content: space-between;
@@ -36,7 +36,7 @@ header {
     font-size: 1.5rem;
     background: none;
     border: none;
-    color: #fff;
+    color: navy;
     cursor: pointer;
     display: block;
 }
@@ -72,7 +72,7 @@ nav.active ul {
 
 nav ul li a {
     text-decoration: none;
-    color: #fff;
+    color: navy;
     font-weight: 500;
     padding: 0.5rem 0.8rem;
     border-radius: 5px;
@@ -80,8 +80,8 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: #fff;
-    color: #4b007d;
+    background-color: white;
+    color: darkviolet;
 }
 
 /* this is for my main section  */
@@ -108,8 +108,8 @@ h1 {
 
 figure {
     margin: 0;
-    background: #fff;
-    border: 1px solid #ddd;
+    background: white;
+    border: 1px solid lightgray;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
@@ -124,13 +124,13 @@ figure img {
 figcaption {
     padding: 0.5rem;
     font-weight: 500;
-    background-color: #f4f4f4;
+    background-color: lightgrey;
 }
 
 /* this for my footer section */
 footer {
     text-align: center;
     padding: 1rem;
-    background-color: #eee;
+    background-color: lightgray;
     font-size: 0.9rem;
 }
