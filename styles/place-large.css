@@ -1,6 +1,18 @@
 /* Large screen styles 900 px or bigger */
 
 @media screen and (min-width: 900px) {
+    .hero .content {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+    }
+
+    .hero .weather-card {
+        position: absolute;
+        bottom: 1rem;
+        right: 1rem;
+    }
+    
     .hero {
         position: relative;
     }
@@ -18,39 +30,37 @@
         padding: 1.5rem;
         border-radius: 10px;
         box-shadow: 0 4px 12px var(--body-font-color);
+        width: auto;
         min-width: 300px;
         max-width: 350px;
-        width: auto;
     }
 
     .content {
-        top: 25%;
-        left: 10%;
+        top: 1rem;
+        left: 1rem;
     }
 
     .weather-card {
-        top: 25%;
-        right: 10%;
+        bottom: 1rem;
+        right: 1rem;
     }
 
     .weather-card h2 {
         text-align: center;
-        color: var(--accent-color);
-        padding: 0.5rem;
-        border-radius: 5px;
         margin-top: 0;
+        margin-bottom: 0.5rem;
+        color: var(--accent-color);
     }
-}
 
-@media screen and (min-width: 900px) {
-
-    .data-list li, .weather-list li {
+    .data-list li,
+    .weather-list li {
         display: flex;
         justify-content: flex-start;
         align-items: baseline;
     }
 
-    .data-list .label, .weather-list .label {
+    .data-list .label,
+    .weather-list .label {
         font-weight: bold;
         width: 150px;
         text-align: right;

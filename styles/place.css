@@ -28,15 +28,17 @@ header {
 }
 
 .hero {
-    width: 100%;
-    flex: 0 0 auto;
+    grid-column: 1 / -1; /* span full grid width */
+    width: 100%; /* full viewport width */
+    max-width: none;
+    margin: 0;
+    position: relative;    
 }
 
 .hero img {
-    display: block;
     width: 100%;
-    margin: 0;
-    padding: 0;
+    height: auto;
+    display: block;
 }
 
 img {
@@ -50,7 +52,7 @@ main {
     grid-template-columns: 1fr;
     gap: 1rem;
     margin: 0 auto;
-    max-width: 1000px;
+    max-width: 100%;
     justify-items: center;
 }
 
@@ -63,6 +65,18 @@ main {
     max-width: 500px;
     margin: 0 auto;
     box-shadow: 0 2px 8px black;}
+
+.hero .content {
+    position: static;
+    max-width: 500px; /* narrower when overlayed */
+    margin: 1rem auto; /* override the auto margin */
+}
+
+.hero .weather-card {
+    position: static;
+    max-width: 500px;
+    margin: 1rem auto; /* override the auto margin */
+}
 
 .content h2 {
     text-align: center;
@@ -90,14 +104,6 @@ main {
     width: 140px;
     text-align: right;
     margin-right: 1rem;
-}
-
-.icon-img {
-    display: inline;
-}
-
-.icon-emoji {
-    display: none;
 }
 
 .weather-list {
@@ -132,12 +138,41 @@ footer {
     content: " 🏝️";
 }
 
+/* Default icon styles */
+.weather-card img {
+    width: 40px;
+    /* keep SVG small */
+    height: auto;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.icon-emoji {
+    display: none;
+    /* hidden on small screens */
+    font-size: 1.5rem;
+    line-height: 1;
+    vertical-align: middle;
+}
+
+.weather-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    /* spacing between text and icon */
+}
+
+/* Large screen swap */
 @media (min-width: 900px) {
-    .icon-img {
+    .weather-card img {
         display: none;
+        /* hide SVG */
     }
 
     .icon-emoji {
         display: inline;
+        /* show emoji */
+        font-size: 2rem;
+        /* bigger emoji */
     }
 }
