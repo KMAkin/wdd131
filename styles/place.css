@@ -7,6 +7,7 @@
     --accent-color: yellow;
     --body-bg-color: white;
     --body-font-color: black;
+    --big-primary-card-color: red;
 }
 
 * {
@@ -68,8 +69,7 @@ main {
     margin-top: 0;
 }
 
-.content h2,
-.weather-card h2 {
+.content h2, .weather-card h2 {
     margin-bottom: .5rem;
 }
 

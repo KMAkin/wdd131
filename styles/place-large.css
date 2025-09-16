@@ -13,11 +13,11 @@
     /* Overlay boxes on hero */
     .content, .weather-card {
         position: absolute;
-        background: red;
-        color: yellow;
+        background: var(--big-primary-card-color);
+        color: var(--accent-color);
         padding: 1.5rem;
         border-radius: 10px;
-        box-shadow: 0 4px 12px black;
+        box-shadow: 0 4px 12px var(--body-font-color);
         min-width: 300px;
         max-width: 350px;
         width: auto;
@@ -35,7 +35,7 @@
 
     .weather-card h2 {
         text-align: center;
-        color: yellow;
+        color: var(--accent-color);
         padding: 0.5rem;
         border-radius: 5px;
         margin-top: 0;
@@ -44,20 +44,15 @@
 
 @media screen and (min-width: 900px) {
 
-    /* Keep flex alignment from small view */
-    .data-list li,
-    .weather-list li {
+    .data-list li, .weather-list li {
         display: flex;
         justify-content: flex-start;
         align-items: baseline;
-        /* makes multi-line values (like Partly Cloudy) line up */
     }
 
-    .data-list .label,
-    .weather-list .label {
+    .data-list .label, .weather-list .label {
         font-weight: bold;
         width: 150px;
-        /* consistent column width */
         text-align: right;
         margin-right: 1rem;
         flex-shrink: 0;
