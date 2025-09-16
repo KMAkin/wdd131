@@ -1,5 +1,14 @@
 /* this is for my small view of the site 900px or smaller for viewport */
 /* start of the whole page*/
+/* Global variables */
+
+:root {
+    --primary-color: blue;
+    --accent-color: yellow;
+    --body-bg-color: white;
+    --body-font-color: black;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -12,8 +21,8 @@ body {
 }
 
 header {
-    background: blue;
-    color: yellow;
+    background: var(--primary-color);
+    color: var(--accent-color);
     padding: 1rem;
 }
 
@@ -45,8 +54,8 @@ main {
 }
 
 .content, .weather-card {
-    background: white;
-    color: black;
+    background: var(--body-bg-color);
+    color: var(--body-font-color);
     padding: 1rem;
     border-radius: 8px;
     width: 100%;
@@ -111,8 +120,16 @@ main {
 }
 
 footer {
-    background-color: blue;
-    color: yellow;
+    background-color: var(--primary-color);
+    color: var(--accent-color);
+}
+
+.content h2::before {
+    content: "🏝️ ";
+}
+
+.content h2::after {
+    content: " 🏝️";
 }
 
 @media (min-width: 900px) {
