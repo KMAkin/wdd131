@@ -83,6 +83,14 @@ main {
     margin-right: 1rem;
 }
 
+.icon-img {
+    display: inline;
+}
+
+.icon-emoji {
+    display: none;
+}
+
 .weather-list {
     list-style: none;
     padding: 0;
@@ -105,4 +113,14 @@ main {
 footer {
     background-color: blue;
     color: yellow;
+}
+
+@media (min-width: 900px) {
+    .icon-img {
+        display: none;
+    }
+
+    .icon-emoji {
+        display: inline;
+    }
 }
