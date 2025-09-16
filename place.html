@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Kris Akin">
+    <title>WDD 131 – Temple album and responsive pages – Kris Akin</title>
+    <meta name="description"
+        content="WDD 131 – Temple album and responsive pages using pictures and adding hamburger menu - by Kris Akin. Learn the basics of building dynamic websites using HTML, CSS, and JavaScript.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/place.css">
+    <link rel="stylesheet" href="styles/place-large.css">
+    <script src="scripts/place.js" defer></script>
+    <script src="scripts/getdates.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>Philippines</h1>
+    </header>
+    <main>
+        <section class="hero">
+            <picture>
+                <!-- Large screen -->
+                <source media="(min-width: 900px)" srcset="images/manila.webp">
+                <!-- Small screen (default) -->
+                <img src="images/el_nido.webp" alt="Description of hero image" width="1000" height="500">
+            </picture>
+        </section>
+
+        <section class="content">
+            <h2>Data</h2>
+            <ul class="data-list">
+                <li><span class="label">Area:</span> 300,000 sq km</li>
+                <li><span class="label">Population:</span> 115,800,000 </li>
+                <li><span class="label">Captial:</span> Manila</li>
+                <li><span class="label">Language:</span> Tagalog/Filipino</li>
+                <li><span class="label">Currency:</span> Peso</li>
+                <li><span class="label">Time Zone:</span> UTC+8</li>
+                <li><span class="label">Calling Code:</span> +63</li>
+                <li><span class="label">Internet TLD:</span> .ph</li>
+            </ul>
+        </section>
+        <!-- Weather card -->
+        <section class="weather-card">
+            <h2>Weather <span id="weatherEmoji"></span></h2>
+            <ul class="weather-list">
+                <li><span class="label">Temperature:</span> 8 °C</li>
+                <li><span class="label">Conditions:</span> Partly Cloudy</li>
+                <li><span class="label">Wind:</span> 10 km/h</li>
+                <li><span class="label">Wind Chill:</span><span id="windchill"></span></li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>
+            <span id="currentyear"></span>
+        </p>
+        <p>
+            <span id="lastmodified"></span>
+        </p>
+    </footer>
+</body>
+
+</html>

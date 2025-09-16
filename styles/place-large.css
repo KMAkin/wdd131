@@ -1,0 +1,43 @@
+/* Large screen styles */
+@media screen and (min-width: 900px) {
+    .hero {
+        position: relative;
+    }
+
+    .hero img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Overlay boxes on hero */
+    .content,
+    .weather-card {
+        position: absolute;
+        background: red;
+        color: yellow;
+        padding: 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px black;
+        width: 280px;
+    }
+
+    .content {
+        top: 25%;
+        left: 10%;
+        text-align: left;
+    }
+
+    .weather-card {
+        top: 25%;
+        right: 10%;
+        text-align: left;
+    }
+
+    .weather-card h2 {
+        text-align: center;
+        color: yellow;
+        padding: 0.5rem;
+        border-radius: 5px;
+        margin-top: 0;
+    }
+}
