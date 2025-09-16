@@ -1,4 +1,5 @@
-/* Large screen styles */
+/* Large screen styles 900 px or bigger */
+
 @media screen and (min-width: 900px) {
     .hero {
         position: relative;
