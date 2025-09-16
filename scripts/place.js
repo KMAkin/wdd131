@@ -29,23 +29,3 @@ function displayWindChill() {
 }
 
 displayWindChill();
-
-// this is for the weather icon - chatgpt helped me out here
-const weatherEmoji = "⛅";
-const weatherEmojiElement = document.getElementById("weatherEmoji");
-
-function updateWeatherIcon() {
-
-    if (window.matchMedia("(min-width: 1000px)").matches) {
-        //for large screen use the emoji from the cont
-        weatherEmojiElement.textContent = weatherEmoji;
-
-    } else {
-        //for smaller screens and using a svg file
-        weatherEmojiElement.innerHTML = '<img src="images/weather.svg" alt="Weather Icon" width="35" height="35">';
-    }
-}
-
-updateWeatherIcon();
-
-window.addEventListener("resize", updateWeatherIcon);
