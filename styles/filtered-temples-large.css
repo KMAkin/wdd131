@@ -1,0 +1,24 @@
+/* viewport setting when screen is at least 768px wide */
+@media screen and (min-width: 768px) {
+
+    /* putting gallery in a grid with columns */
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        justify-content: center;
+    }
+
+    /* adjusting the size of the title */
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    /* adjusting the space of the links on the nav bar */
+    nav ul {
+        gap: 2rem;
+    }
+
+    temple-card {
+        max-width: 320px;
+        margin: 0 auto;
+    }
+}

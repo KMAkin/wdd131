@@ -1,0 +1,40 @@
+table {
+    width: 60%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+caption {
+    caption-side: bottom;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+thead th {
+    background-color: black;
+    color: white;
+    padding: 12px;
+    font-size: 1.2em;
+}
+
+tbody th {
+    text-align: left;
+    background-color: #f2f2f2;
+    padding: 10px;
+}
+
+td {
+    padding: 10px;
+    font-size: 1.2em;
+}
+
+/* Zebra striping */
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+}

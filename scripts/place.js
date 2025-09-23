@@ -29,3 +29,27 @@ function displayWindChill() {
 }
 
 displayWindChill();
+
+
+
+// Inject cards into <section class="gallery">
+const gallery = document.querySelector(".gallery");
+
+temples.forEach((temple) => {
+    const card = document.createElement("article");
+    card.classList.add("temple-card");
+
+    card.innerHTML = `
+    <h2>${temple.templeName}</h2>
+    <p><strong>Location:</strong> ${temple.location}</p>
+    <p><strong>Dedicated:</strong> ${temple.dedicated}</p>
+    <p><strong>Size:</strong> ${Number(temple.area).toLocaleString()} sq ft</p>
+    <img
+      src="${temple.imageUrl}"
+      alt="Image of ${temple.templeName}"
+      loading="lazy"
+    >
+  `;
+
+    gallery.appendChild(card);
+});
