@@ -1,0 +1,57 @@
+/* Desktop Styles - 900px and up */
+@media screen and (min-width: 900px) {
+
+    /* Navigation - horizontal layout for desktop */
+    .menu-toggle {
+        display: none;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nav-links a {
+        border-bottom: none;
+        text-align: center;
+        width: auto;
+    }
+
+    /* Rest of your desktop styles below... */
+    header h1 {
+        font-size: 3rem;
+    }
+
+    main {
+        padding: 3rem 2rem;
+    }
+
+    .hero h2 {
+        font-size: 3rem;
+    }
+
+    .page-header h2 {
+        font-size: 3rem;
+    }
+
+    .founder-content {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 2.5rem;
+        align-items: start;
+    }
+
+    .founder-content img {
+        margin-bottom: 0;
+    }
+
+    .activity-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .story-content h3 {
+        font-size: 1.8rem;
+    }
+}

@@ -1,0 +1,141 @@
+/* Tablet Styles - 600px and up */
+@media screen and (min-width: 600px) {
+
+    /* Header */
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    /* Navigation */
+    .menu-toggle {
+        display: none;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nav-links a {
+        border-bottom: none;
+        text-align: center;
+        width: auto;
+    }
+
+    /* Hero */
+    .hero {
+        padding: 3rem 2rem;
+    }
+
+    .hero h2 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+    }
+
+    /* Page Header */
+    .page-header {
+        margin-bottom: 3rem;
+    }
+
+    .page-header h2 {
+        font-size: 2.5rem;
+    }
+
+    .page-header p {
+        font-size: 1.2rem;
+    }
+
+    /* Sections */
+    section {
+        margin-bottom: 3rem;
+    }
+
+    section h2 {
+        font-size: 1.8rem;
+    }
+
+    /* Founder Story */
+    .founder-content {
+        padding: 2rem;
+    }
+
+    .founder-content img {
+        margin-bottom: 2rem;
+    }
+
+    /* Content Grid */
+    .content-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    /* Activity Grid */
+    .activity-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    /* Support Grid */
+    .support-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Story Cards */
+    .stories-container {
+        gap: 3rem;
+    }
+
+    .story-content {
+        padding: 2rem;
+    }
+
+    .story-content h3 {
+        font-size: 1.5rem;
+    }
+
+    /* Form */
+    .form-intro {
+        margin-bottom: 3rem;
+    }
+
+    .info-cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .form-section {
+        padding: 2rem;
+    }
+
+    .form-actions {
+        flex-direction: row;
+    }
+
+    button[type="submit"],
+    button[type="reset"] {
+        flex: 1;
+        width: auto;
+    }
+
+    /* Submissions */
+    .submissions-section {
+        padding: 2rem;
+    }
+
+    .submissions-list {
+        margin: 2rem 0;
+    }
+
+    /* CTA */
+    .cta {
+        padding: 3rem 2rem;
+    }
+
+    .cta p {
+        font-size: 1.1rem;
+    }
+}
