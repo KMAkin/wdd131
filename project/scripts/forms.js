@@ -1,57 +1,179 @@
-// JavaScript for Contact Form - No Excuse Outdoors
+// Form validation and submission handling
 
-// Array to store form submissions in memory (replacing localStorage)
-let formSubmissions = [];
+// 1. OBJECTS - Store form data
+const formData = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    interests: [],
+    activities: '',
+    message: '',
+    newsletter: false,
+    timestamp: ''
+};
 
-// Load submissions from memory on page load
-function loadSubmissions() {
-    // In a real application with localStorage, we would load from storage
-    // For this implementation, we use the in-memory array
-    return formSubmissions;
-}
+// 2. ARRAY METHODS & CONDITIONAL BRANCHING - Validation functions
+const validators = {
+    validateName: (name) => {
+        if (name.trim().length < 2) {
+            return 'Name must be at least 2 characters';
+        }
+        return '';
+    },
 
-// Save submission to memory
-function saveSubmission(submission) {
-    formSubmissions.push(submission);
-    const message = `Submission saved! Total submissions: ${formSubmissions.length}`;
-    console.log(message);
-}
+    validateEmail: (email) => {
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            return 'Please enter a valid email address';
+        }
+        return '';
+    },
 
-// Form validation object
-const formValidation = {
-    firstName: {
-        validate: (value) => value.trim().length > 0,
-        message: 'First name is required'
-    },
-    lastName: {
-        validate: (value) => value.trim().length > 0,
-        message: 'Last name is required'
-    },
-    email: {
-        validate: (value) => {
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return emailPattern.test(value);
-        },
-        message: 'Please enter a valid email address'
-    },
-    phone: {
-        validate: (value) => {
-            if (value.trim().length === 0) return true; // Optional field
-            const phonePattern = /^\d{3}-\d{3}-\d{4}$/;
-            return phonePattern.test(value);
-        },
-        message: 'Phone must be in format: 123-456-7890'
-    },
-    interest: {
-        validate: () => {
-            const checkboxes = document.querySelectorAll('input[name="interest"]:checked');
-            return checkboxes.length > 0;
-        },
-        message: 'Please select at least one interest'
+    validateInterests: (interests) => {
+        if (interests.length === 0) {
+            return 'Please select at least one interest';
+        }
+        return '';
     }
 };
 
-// Function to show error message
+// 3. DOM INTERACTION - Get form elements
+function initializeForm() {
+    const form = document.getElementById('contact-form');
+    const successMessage = document.getElementById('form-success');
+    const viewSubmissionsBtn = document.getElementById('view-submissions');
+    const closeSubmissionsBtn = document.getElementById('close-submissions');
+
+    if (form) {
+        form.addEventListener('submit', handleSubmit);
+    }
+
+    if (viewSubmissionsBtn) {
+        viewSubmissionsBtn.addEventListener('click', displaySubmissions);
+    }
+
+    if (closeSubmissionsBtn) {
+        closeSubmissionsBtn.addEventListener('click', closeSubmissions);
+    }
+}
+
+// 4. EVENT HANDLING - Form submission
+function handleSubmit(event) {
+    event.preventDefault();
+
+    // Clear previous errors
+    clearErrors();
+
+    // Gather form data
+    const firstName = document.getElementById('first-name').value;
+    const lastName = document.getElementById('last-name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const interests = Array.from(document.querySelectorAll('input[name="interest"]:checked'))
+        .map(checkbox => checkbox.value);
+    const activities = document.getElementById('activities').value;
+    const message = document.getElementById('message').value;
+    const newsletter = document.getElementById('newsletter').checked;
+
+    // Validate
+    let isValid = true;
+
+    const firstNameError = validators.validateName(firstName);
+    if (firstNameError) {
+        showError('first-name', firstNameError);
+        isValid = false;
+    }
+
+    const lastNameError = validators.validateName(lastName);
+    if (lastNameError) {
+        showError('last-name', lastNameError);
+        isValid = false;
+    }
+
+    const emailError = validators.validateEmail(email);
+    if (emailError) {
+        showError('email', emailError);
+        isValid = false;
+    }
+
+    const interestsError = validators.validateInterests(interests);
+    if (interestsError) {
+        showError('interest', interestsError);
+        isValid = false;
+    }
+
+    // If valid, save to localStorage
+    if (isValid) {
+        saveSubmission({
+            firstName,
+            lastName,
+            email,
+            phone,
+            interests,
+            activities,
+            message,
+            newsletter,
+            timestamp: new Date().toISOString()
+        });
+
+        // Show success message
+        document.getElementById('contact-form').style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
+    }
+}
+
+// 5. LOCALSTORAGE - Save submission
+function saveSubmission(data) {
+    const submissions = getSubmissions();
+    submissions.push(data);
+    localStorage.setItem('contactSubmissions', JSON.stringify(submissions));
+}
+
+// 6. LOCALSTORAGE - Retrieve submissions
+function getSubmissions() {
+    const stored = localStorage.getItem('contactSubmissions');
+    if (stored) {
+        return JSON.parse(stored);
+    }
+    return [];
+}
+
+// 7. TEMPLATE LITERALS - Display submissions
+function displaySubmissions() {
+    const submissions = getSubmissions();
+    const submissionsList = document.getElementById('submissions-list');
+    const submissionsSection = document.getElementById('submissions-section');
+
+    if (submissions.length === 0) {
+        submissionsList.innerHTML = `<p>No previous submissions found.</p>`;
+    } else {
+        // Use template literals to build output
+        const submissionsHTML = submissions.map((sub, index) => `
+            <div class="submission-item">
+                <h4>Submission ${index + 1}</h4>
+                <p><strong>Name:</strong> ${sub.firstName} ${sub.lastName}</p>
+                <p><strong>Email:</strong> ${sub.email}</p>
+                ${sub.phone ? `<p><strong>Phone:</strong> ${sub.phone}</p>` : ''}
+                <p><strong>Interests:</strong> ${sub.interests.join(', ')}</p>
+                ${sub.activities ? `<p><strong>Activities:</strong> ${sub.activities}</p>` : ''}
+                ${sub.message ? `<p><strong>Message:</strong> ${sub.message}</p>` : ''}
+                <p><strong>Newsletter:</strong> ${sub.newsletter ? 'Yes' : 'No'}</p>
+                <p class="timestamp">Submitted: ${new Date(sub.timestamp).toLocaleString()}</p>
+            </div>
+        `).join('');
+
+        submissionsList.innerHTML = submissionsHTML;
+    }
+
+    submissionsSection.style.display = 'block';
+}
+
+// 8. DOM MODIFICATION - Show/hide elements
+function closeSubmissions() {
+    document.getElementById('submissions-section').style.display = 'none';
+}
+
 function showError(fieldName, message) {
     const errorElement = document.getElementById(`${fieldName}-error`);
     const inputElement = document.getElementById(fieldName);
@@ -59,231 +181,18 @@ function showError(fieldName, message) {
     if (errorElement) {
         errorElement.textContent = message;
     }
-
     if (inputElement) {
         inputElement.classList.add('error');
-        inputElement.setAttribute('aria-invalid', 'true');
     }
 }
 
-// Function to clear error message
-function clearError(fieldName) {
-    const errorElement = document.getElementById(`${fieldName}-error`);
-    const inputElement = document.getElementById(fieldName);
+function clearErrors() {
+    const errorMessages = document.querySelectorAll('.error-message');
+    errorMessages.forEach(msg => msg.textContent = '');
 
-    if (errorElement) {
-        errorElement.textContent = '';
-    }
-
-    if (inputElement) {
-        inputElement.classList.remove('error');
-        inputElement.setAttribute('aria-invalid', 'false');
-    }
+    const errorInputs = document.querySelectorAll('.error');
+    errorInputs.forEach(input => input.classList.remove('error'));
 }
 
-// Function to validate field
-function validateField(fieldName, value) {
-    const validation = formValidation[fieldName];
-
-    if (validation) {
-        if (validation.validate(value)) {
-            clearError(fieldName);
-            return true;
-        } else {
-            showError(fieldName, validation.message);
-            return false;
-        }
-    }
-
-    return true;
-}
-
-// Function to validate entire form
-function validateForm(formData) {
-    let isValid = true;
-    const fields = ['firstName', 'lastName', 'email', 'phone', 'interest'];
-
-    fields.forEach(field => {
-        if (field === 'interest') {
-            if (!validateField(field, null)) {
-                isValid = false;
-            }
-        } else {
-            const value = formData.get(field) || '';
-            if (!validateField(field, value)) {
-                isValid = false;
-            }
-        }
-    });
-
-    return isValid;
-}
-
-// Function to format form data for display
-function formatSubmissionData(formData) {
-    const interests = [];
-    formData.getAll('interest').forEach(interest => {
-        interests.push(interest);
-    });
-
-    const timestamp = new Date();
-
-    return {
-        firstName: formData.get('firstName'),
-        lastName: formData.get('lastName'),
-        email: formData.get('email'),
-        phone: formData.get('phone') || 'Not provided',
-        interests: interests,
-        activities: formData.get('activities') || 'Not selected',
-        message: formData.get('message') || 'No message',
-        newsletter: formData.get('newsletter') ? 'Yes' : 'No',
-        timestamp: timestamp.toLocaleString()
-    };
-}
-
-// Function to display submissions
-function displaySubmissions() {
-    const submissionsList = document.getElementById('submissions-list');
-    const submissions = loadSubmissions();
-
-    if (submissionsList) {
-        if (submissions.length === 0) {
-            submissionsList.innerHTML = `<p>No submissions yet.</p>`;
-        } else {
-            submissionsList.innerHTML = '';
-
-            submissions.forEach((submission, index) => {
-                const submissionDiv = document.createElement('div');
-                submissionDiv.className = 'submission-item';
-
-                const interestsList = submission.interests.join(', ');
-
-                submissionDiv.innerHTML = `
-                    <h4>Submission #${index + 1}</h4>
-                    <p><strong>Name:</strong> ${submission.firstName} ${submission.lastName}</p>
-                    <p><strong>Email:</strong> ${submission.email}</p>
-                    <p><strong>Phone:</strong> ${submission.phone}</p>
-                    <p><strong>Interests:</strong> ${interestsList}</p>
-                    <p><strong>Activities:</strong> ${submission.activities}</p>
-                    <p><strong>Newsletter:</strong> ${submission.newsletter}</p>
-                    <p><strong>Message:</strong> ${submission.message}</p>
-                    <p class="timestamp">Submitted: ${submission.timestamp}</p>
-                `;
-
-                submissionsList.appendChild(submissionDiv);
-            });
-        }
-    }
-}
-
-// Function to handle form submission
-function handleFormSubmit(e) {
-    e.preventDefault();
-
-    const form = e.target;
-    const formData = new FormData(form);
-
-    // Clear all previous errors
-    const fields = ['firstName', 'lastName', 'email', 'phone', 'interest'];
-    fields.forEach(field => clearError(field));
-
-    // Validate form
-    if (!validateForm(formData)) {
-        const errorMessage = `Please correct the errors in the form`;
-        alert(errorMessage);
-        return;
-    }
-
-    // Format and save submission
-    const submissionData = formatSubmissionData(formData);
-    saveSubmission(submissionData);
-
-    // Show success message
-    form.style.display = 'none';
-    const successMessage = document.getElementById('form-success');
-    if (successMessage) {
-        successMessage.style.display = 'block';
-    }
-
-    // Use template literal for success logging
-    const logMessage = `Form submitted successfully by ${submissionData.firstName} ${submissionData.lastName}`;
-    console.log(logMessage);
-}
-
-// Function to setup form event listeners
-function setupFormListeners() {
-    const form = document.getElementById('contact-form');
-
-    if (form) {
-        // Form submission
-        form.addEventListener('submit', handleFormSubmit);
-
-        // Real-time validation
-        const inputs = form.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"]');
-        inputs.forEach(input => {
-            input.addEventListener('blur', (e) => {
-                const fieldName = e.target.id;
-                const value = e.target.value;
-                validateField(fieldName, value);
-            });
-        });
-
-        // Interest checkboxes validation
-        const interestCheckboxes = form.querySelectorAll('input[name="interest"]');
-        interestCheckboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', () => {
-                validateField('interest', null);
-            });
-        });
-
-        // Form reset
-        form.addEventListener('reset', () => {
-            const fields = ['firstName', 'lastName', 'email', 'phone', 'interest'];
-            fields.forEach(field => clearError(field));
-        });
-    }
-}
-
-// Function to setup view submissions button
-function setupViewSubmissions() {
-    const viewButton = document.getElementById('view-submissions');
-    const submissionsSection = document.getElementById('submissions-section');
-    const closeButton = document.getElementById('close-submissions');
-
-    if (viewButton && submissionsSection) {
-        viewButton.addEventListener('click', () => {
-            displaySubmissions();
-            submissionsSection.style.display = 'block';
-            submissionsSection.scrollIntoView({ behavior: 'smooth' });
-        });
-    }
-
-    if (closeButton && submissionsSection) {
-        closeButton.addEventListener('click', () => {
-            submissionsSection.style.display = 'none';
-        });
-    }
-}
-
-// Function to add conditional behavior based on form selections
-function setupConditionalBehavior() {
-    const volunteerCheckbox = document.getElementById('interest-volunteer');
-    const activitiesSelect = document.getElementById('activities');
-
-    if (volunteerCheckbox && activitiesSelect) {
-        volunteerCheckbox.addEventListener('change', (e) => {
-            if (e.target.checked) {
-                const message = `Thank you for your interest in volunteering! Please select your preferred activities below.`;
-                console.log(message);
-                activitiesSelect.setAttribute('aria-label', 'Select activities you would like to volunteer for');
-            }
-        });
-    }
-}
-
-// Initialize all form functions
-document.addEventListener('DOMContentLoaded', () => {
-    setupFormListeners();
-    setupViewSubmissions();
-    setupConditionalBehavior();
-});
+// Initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', initializeForm);
