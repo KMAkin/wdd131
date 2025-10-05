@@ -7,14 +7,13 @@
 
 html {
     font-size: 16px;
-    scroll-behavior: smooth;
 }
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #e0e0e0;
+    background-color: lightgray;
     line-height: 1.6;
-    color: #000;
+    color: black;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -28,7 +27,7 @@ img {
 
 /* Header Styles */
 header {
-    background-color: #000;
+    background-color: black;
     color: white;
     text-align: center;
     padding: 1.5rem 1rem;
@@ -48,12 +47,12 @@ header h1 {
 .tagline {
     font-size: 1rem;
     font-style: italic;
-    color: #f6c300;
+    color: goldenrod;
 }
 
 /* Navigation Styles */
 nav {
-    background-color: #0b3d0b;
+    background-color: forestgreen;
     padding: 0;
     position: relative;
 }
@@ -108,7 +107,7 @@ nav {
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: #f6c300;
+    color: goldenrod;
     background-color: rgba(246, 195, 0, 0.1);
 }
 
@@ -123,7 +122,7 @@ main {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #0b3d0b 0%, #000 100%);
+    background: linear-gradient(135deg, forestgreen 0%, black 100%);
     color: white;
     text-align: center;
     padding: 2rem 1.5rem;
@@ -139,7 +138,7 @@ main {
 
 .hero p {
     font-size: 1rem;
-    color: #f6c300;
+    color: goldenrod;
 }
 
 /* Page Header */
@@ -151,7 +150,7 @@ main {
 .page-header h2 {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.8rem;
-    color: #000;
+    color: black;
     margin-bottom: 0.5rem;
     background: transparent;
     padding: 0;
@@ -159,7 +158,7 @@ main {
 
 .page-header p {
     font-size: 1rem;
-    color: #0b3d0b;
+    color: forestgreen;
 }
 
 /* Section Styles */
@@ -169,7 +168,7 @@ section {
 
 section h2 {
     font-family: 'Montserrat', sans-serif;
-    background: #000;
+    background: black;
     color: white;
     padding: 1rem;
     border-radius: 8px;
@@ -212,7 +211,7 @@ section h2 {
 
 .signature {
     font-style: italic;
-    color: #0b3d0b;
+    color: forestgreen;
     margin-top: 2rem;
 }
 
@@ -260,7 +259,7 @@ section h2 {
 }
 
 .activity-card h3 {
-    background: #0b3d0b;
+    background: forestgreen;
     color: white;
     padding: 1rem;
     margin: 0;
@@ -285,7 +284,7 @@ section h2 {
 }
 
 .support-card {
-    background: #0b3d0b;
+    background: forestgreen;
     color: white;
     padding: 2rem;
     border-radius: 10px;
@@ -293,7 +292,7 @@ section h2 {
 }
 
 .support-card h3 {
-    color: #f6c300;
+    color: goldenrod;
     margin-bottom: 1rem;
     font-family: 'Montserrat', sans-serif;
 }
@@ -327,20 +326,20 @@ section h2 {
 
 .story-content h3 {
     font-family: 'Montserrat', sans-serif;
-    color: #0b3d0b;
+    color: forestgreen;
     margin-bottom: 0.5rem;
     font-size: 1.3rem;
 }
 
 .story-content h4 {
     font-family: 'Montserrat', sans-serif;
-    color: #0b3d0b;
+    color: forestgreen;
     margin: 1.5rem 0 0.5rem 0;
     font-size: 1.1rem;
 }
 
 .story-meta {
-    color: #666;
+    color: darkgray;
     font-size: 0.9rem;
     margin-bottom: 1rem;
     font-style: italic;
@@ -352,9 +351,9 @@ section h2 {
 }
 
 .story-content blockquote {
-    background: #f6c300;
+    background: goldenrod;
     padding: 1rem;
-    border-left: 4px solid #0b3d0b;
+    border-left: 4px solid forestgreen;
     margin: 1.5rem 0;
     font-style: italic;
 }
@@ -371,7 +370,7 @@ section h2 {
 }
 
 .info-card {
-    background: #0b3d0b;
+    background: forestgreen;
     color: white;
     padding: 1.5rem;
     border-radius: 10px;
@@ -379,7 +378,7 @@ section h2 {
 }
 
 .info-card h3 {
-    color: #f6c300;
+    color: goldenrod;
     margin-bottom: 0.5rem;
     font-family: 'Montserrat', sans-serif;
 }
@@ -399,11 +398,11 @@ section h2 {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
-    color: #000;
+    color: black;
 }
 
 .required {
-    color: #d32f2f;
+    color: darkred;
 }
 
 .form-group input[type="text"],
@@ -413,7 +412,7 @@ section h2 {
 .form-group textarea {
     width: 100%;
     padding: 0.75rem;
-    border: 2px solid #ddd;
+    border: 2px solid lightgray;
     border-radius: 5px;
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
@@ -424,25 +423,25 @@ section h2 {
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #0b3d0b;
+    border-color: forestgreen;
 }
 
 .form-group input.error,
 .form-group select.error,
 .form-group textarea.error {
-    border-color: #d32f2f;
+    border-color: darkred;
 }
 
 .error-message {
     display: block;
-    color: #d32f2f;
+    color: darkred;
     font-size: 0.875rem;
     margin-top: 0.25rem;
     min-height: 1.25rem;
 }
 
 fieldset {
-    border: 2px solid #ddd;
+    border: 2px solid lightgray;
     border-radius: 5px;
     padding: 1rem;
 }
@@ -500,23 +499,23 @@ legend {
 }
 
 .btn-primary {
-    background: #0b3d0b;
+    background: forestgreen;
     color: white;
 }
 
 .btn-primary:hover {
-    background: #094d09;
+    background: olivedrab;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .btn-secondary {
-    background: #f6c300;
-    color: #000;
+    background: goldenrod;
+    color: black;
 }
 
 .btn-secondary:hover {
-    background: #d4a700;
+    background: orangered;
 }
 
 button[type="submit"],
@@ -526,7 +525,7 @@ button[type="reset"] {
 
 /* Success Message */
 .success-message {
-    background: #4caf50;
+    background: olivedrab;
     color: white;
     padding: 2rem;
     border-radius: 10px;
@@ -557,15 +556,15 @@ button[type="reset"] {
 }
 
 .submission-item {
-    background: #f5f5f5;
+    background: white;
     padding: 1.5rem;
     border-radius: 8px;
     margin-bottom: 1rem;
-    border-left: 4px solid #0b3d0b;
+    border-left: 4px solid forestgreen;
 }
 
 .submission-item h4 {
-    color: #0b3d0b;
+    color: forestgreen;
     margin-bottom: 0.5rem;
     font-family: 'Montserrat', sans-serif;
 }
@@ -576,14 +575,14 @@ button[type="reset"] {
 
 .submission-item .timestamp {
     font-size: 0.875rem;
-    color: #666;
+    color: darkgray;
     font-style: italic;
     margin-top: 0.5rem;
 }
 
 /* Call to Action */
 .cta {
-    background: linear-gradient(135deg, #0b3d0b 0%, #000 100%);
+    background: linear-gradient(135deg, forestgreen 0%, black 100%);
     color: white;
     text-align: center;
     padding: 2rem 1.5rem;
@@ -592,7 +591,7 @@ button[type="reset"] {
 
 .cta h2 {
     background: transparent;
-    color: #f6c300;
+    color: goldenrod;
     margin-bottom: 1rem;
 }
 
@@ -603,7 +602,7 @@ button[type="reset"] {
 
 /* Footer */
 footer {
-    background: #000;
+    background: black;
     color: white;
     text-align: center;
     padding: 2rem 1rem;
@@ -615,7 +614,7 @@ footer {
 }
 
 .footer-content a {
-    color: #f6c300;
+    color: goldenrod;
     text-decoration: none;
 }
 
