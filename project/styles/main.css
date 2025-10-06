@@ -582,7 +582,7 @@ button[type="reset"] {
 
 /* Call to Action */
 .cta {
-    background: linear-gradient(135deg, forestgreen 0%, black 100%);
+    background: forestgreen;
     color: white;
     text-align: center;
     padding: 2rem 1.5rem;
